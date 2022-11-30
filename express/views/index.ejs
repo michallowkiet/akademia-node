@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Users</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    
+    <table class="table">
+      <thead>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Website</th>
+      </thead>
+      <tbody>
+        <% users.forEach(user => { %>
+        <tr>
+          <td><%= user.name %></td>
+          <td>
+            <address>
+              <%= user.address.city %>
+              <%= user.address.street %>
+              <%= user.address.suite %>
+              <%= user.address.zipcode %>
+              Latitude: <%= user.address.geo.lat %> 
+              Longitude: <%= user.address.geo.lng %> 
+            </address>
+          </td>
+          <td>
+            <a href="http://www.<%= user.website %>"" target="_blank"><%= user.website %></a>
+          </td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </body>
+</html>
